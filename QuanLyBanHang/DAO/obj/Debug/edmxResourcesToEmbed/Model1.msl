@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QUAN_LY_BAN_HANGModelStoreContainer" CdmEntityContainer="QUAN_LY_BAN_HANGEntities">
+    <EntitySetMapping Name="HOA_DON">
+      <EntityTypeMapping TypeName="QUAN_LY_BAN_HANGModel.HOA_DON">
+        <MappingFragment StoreEntitySet="HOA_DON">
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="NgayLapHD" ColumnName="NgayLapHD" />
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHAN_VIEN">
+      <EntityTypeMapping TypeName="QUAN_LY_BAN_HANGModel.NHAN_VIEN">
+        <MappingFragment StoreEntitySet="NHAN_VIEN">
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+          <ScalarProperty Name="Luong" ColumnName="Luong" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="HoTenNV" ColumnName="HoTenNV" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SAN_PHAM">
+      <EntityTypeMapping TypeName="QUAN_LY_BAN_HANGModel.SAN_PHAM">
+        <MappingFragment StoreEntitySet="SAN_PHAM">
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="HSD" ColumnName="HSD" />
+          <ScalarProperty Name="NgaySX" ColumnName="NgaySX" />
+          <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+          <ScalarProperty Name="MaNCC" ColumnName="MaNCC" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAI_KHOAN">
+      <EntityTypeMapping TypeName="QUAN_LY_BAN_HANGModel.TAI_KHOAN">
+        <MappingFragment StoreEntitySet="TAI_KHOAN">
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_HOA_DON">
+      <EntityTypeMapping TypeName="QUAN_LY_BAN_HANGModel.CT_HOA_DON">
+        <MappingFragment StoreEntitySet="CT_HOA_DON">
+          <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+          <ScalarProperty Name="ChietKhau" ColumnName="ChietKhau" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHA_CUNG_CAP">
+      <EntityTypeMapping TypeName="QUAN_LY_BAN_HANGModel.NHA_CUNG_CAP">
+        <MappingFragment StoreEntitySet="NHA_CUNG_CAP">
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="TenNCC" ColumnName="TenNCC" />
+          <ScalarProperty Name="MaNCC" ColumnName="MaNCC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

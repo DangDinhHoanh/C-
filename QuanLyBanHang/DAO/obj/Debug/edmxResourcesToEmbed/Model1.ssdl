@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUAN_LY_BAN_HANGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CT_HOA_DON">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaHD" Type="int" Nullable="false" />
+    <Property Name="MaSP" Type="int" />
+    <Property Name="TenSP" Type="nvarchar" MaxLength="50" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="DonGia" Type="int" />
+    <Property Name="TrangThai" Type="bit" />
+    <Property Name="ChietKhau" Type="int" />
+    <Property Name="ThanhTien" Type="varchar" MaxLength="50" />
+    <Property Name="MaNV" Type="int" />
+    <Property Name="NgayLap" Type="datetime" />
+  </EntityType>
+  <EntityType Name="HOA_DON">
+    <Key>
+      <PropertyRef Name="MaHD" />
+    </Key>
+    <Property Name="MaHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NgayLapHD" Type="datetime" />
+    <Property Name="MaNV" Type="int" />
+    <Property Name="TrangThai" Type="bit" />
+  </EntityType>
+  <EntityType Name="NHA_CUNG_CAP">
+    <Key>
+      <PropertyRef Name="MaNCC" />
+    </Key>
+    <Property Name="MaNCC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNCC" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+    <Property Name="SDT" Type="varchar" MaxLength="24" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="TrangThai" Type="bit" />
+  </EntityType>
+  <EntityType Name="NHAN_VIEN">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="int" Nullable="false" />
+    <Property Name="HoTenNV" Type="nvarchar" MaxLength="20" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="3" />
+    <Property Name="CCCD" Type="varchar" MaxLength="15" />
+    <Property Name="HinhAnh" Type="ntext" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+    <Property Name="DienThoai" Type="varchar" MaxLength="11" />
+    <Property Name="Luong" Type="varchar" MaxLength="50" />
+    <Property Name="ChucVu" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="TrangThai" Type="bit" />
+  </EntityType>
+  <EntityType Name="SAN_PHAM">
+    <Key>
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaSP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenSP" Type="nvarchar" MaxLength="50" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="50" />
+    <Property Name="HinhAnh" Type="ntext" />
+    <Property Name="DonViTinh" Type="nvarchar" MaxLength="20" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="DonGia" Type="int" />
+    <Property Name="MaNCC" Type="int" />
+    <Property Name="NgayNhap" Type="date" />
+    <Property Name="NgaySX" Type="date" />
+    <Property Name="HSD" Type="date" />
+    <Property Name="TrangThai" Type="bit" />
+  </EntityType>
+  <EntityType Name="TAI_KHOAN">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="int" Nullable="false" />
+    <Property Name="MatKhau" Type="varchar" MaxLength="15" />
+    <Property Name="TrangThai" Type="bit" />
+  </EntityType>
+  <Association Name="BAN_HANG_1">
+    <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="1" />
+    <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="NHAN_VIEN">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="TAI_KHOAN">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAN_HANG_2">
+    <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="0..1" />
+    <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHAN_VIEN">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="HOA_DON">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAN_HANG_6">
+    <End Role="SAN_PHAM" Type="Self.SAN_PHAM" Multiplicity="0..1" />
+    <End Role="CT_HOA_DON" Type="Self.CT_HOA_DON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SAN_PHAM">
+        <PropertyRef Name="MaSP" />
+      </Principal>
+      <Dependent Role="CT_HOA_DON">
+        <PropertyRef Name="MaSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAN_HANG_7">
+    <End Role="NHA_CUNG_CAP" Type="Self.NHA_CUNG_CAP" Multiplicity="0..1" />
+    <End Role="SAN_PHAM" Type="Self.SAN_PHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHA_CUNG_CAP">
+        <PropertyRef Name="MaNCC" />
+      </Principal>
+      <Dependent Role="SAN_PHAM">
+        <PropertyRef Name="MaNCC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAN_HANG_9">
+    <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="1" />
+    <End Role="CT_HOA_DON" Type="Self.CT_HOA_DON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOA_DON">
+        <PropertyRef Name="MaHD" />
+      </Principal>
+      <Dependent Role="CT_HOA_DON">
+        <PropertyRef Name="MaHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QUAN_LY_BAN_HANGModelStoreContainer">
+    <EntitySet Name="CT_HOA_DON" EntityType="Self.CT_HOA_DON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOA_DON" EntityType="Self.HOA_DON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHA_CUNG_CAP" EntityType="Self.NHA_CUNG_CAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHAN_VIEN" EntityType="Self.NHAN_VIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SAN_PHAM" EntityType="Self.SAN_PHAM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TAI_KHOAN" EntityType="Self.TAI_KHOAN" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="BAN_HANG_1" Association="Self.BAN_HANG_1">
+      <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
+      <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+    </AssociationSet>
+    <AssociationSet Name="BAN_HANG_2" Association="Self.BAN_HANG_2">
+      <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
+      <End Role="HOA_DON" EntitySet="HOA_DON" />
+    </AssociationSet>
+    <AssociationSet Name="BAN_HANG_6" Association="Self.BAN_HANG_6">
+      <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
+      <End Role="CT_HOA_DON" EntitySet="CT_HOA_DON" />
+    </AssociationSet>
+    <AssociationSet Name="BAN_HANG_7" Association="Self.BAN_HANG_7">
+      <End Role="NHA_CUNG_CAP" EntitySet="NHA_CUNG_CAP" />
+      <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
+    </AssociationSet>
+    <AssociationSet Name="BAN_HANG_9" Association="Self.BAN_HANG_9">
+      <End Role="HOA_DON" EntitySet="HOA_DON" />
+      <End Role="CT_HOA_DON" EntitySet="CT_HOA_DON" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
